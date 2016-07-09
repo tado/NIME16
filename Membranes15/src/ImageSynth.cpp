@@ -22,15 +22,12 @@ ImageSynth::ImageSynth(ofImage image, ofVec3f _pos, float _freqRatio){
     synthImage.resize(1920, 1080);
     
     // modify image
-    ofImage tmpImage = inputImage;
-    tmpImage.resize(1920/4, 1080/4);
     cv::Mat src_mat, dst_mat;
-    src_mat = ofxCv::toCv(tmpImage);
+    src_mat = ofxCv::toCv(inputImage);
     //cv::medianBlur(src_mat, dst_mat, 101);
     cv::GaussianBlur(src_mat, dst_mat, cv::Size(121,121), 120, 120);
     ofxCv::toOf(dst_mat, depthImage);
     depthImage.update();
-    depthImage.resize(1920, 1080);
     
     //synthImage = depthImage;
     synthImage.resize(ofGetWidth(), filterSize);

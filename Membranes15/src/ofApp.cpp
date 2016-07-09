@@ -9,7 +9,6 @@ void ofApp::setup(){
     ofBackground(0);
     ofSetLineWidth(1.0);
     pressed = false;
-    //ofDisableArbTex();
     //ofEnableBlendMode(OF_BLENDMODE_ADD);
     //cam.setFarClip(100000);
     //cam.setFov(110);
