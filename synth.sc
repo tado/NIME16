@@ -42,7 +42,7 @@ SynthDef("sinefx", {
 }).store;
 
 SynthDef("col_closesaw", {
-	arg fadeTime = 10, n = 0, rq = 0.3, detune = 0.001, base = 20, ratio = 1.5, harm = 1.5, amp = 0.2, gate=0;
+	arg fadeTime = 30, n = 0, rq = 0.3, detune = 0.001, base = 20, ratio = 1.5, harm = 1.5, amp = 0.2, gate=0;
 	var lfo, env, out;
 	env = EnvGen.kr(Env.new([0,1], [fadeTime], 'sine'));
 	lfo = SinOsc.ar(rrand(0.03, 0.05), 0, 100, 600);
@@ -58,7 +58,8 @@ SynthDef("col_closefx", {
 	arg lpf=440, rq=0.5, amp=0.5;
 	var in, out;
 	in = In.ar(5, 2);
-	32.do({ in = AllpassL.ar(in, 0.1, LFNoise2.kr([rrand(0.0, 0.1),rrand(0.0, 0.1)],0.01,0.06), 2.0) });
+	4.do({ in = AllpassL.ar(in, 0.1, LFNoise2.kr([rrand(0.0, 0.1),rrand(0.0, 0.1)],0.01,0.06), 0.5) });
+	//32.do({ in = AllpassL.ar(in, 0.1, LFNoise2.kr([rrand(0.0, 0.1),rrand(0.0, 0.1)],0.01,0.06), 2.0) });
 	//out = CompanderD.ar(in) * amp;
 	//out = CompanderD.ar(MidEQ.ar(in, 80, 0.8, 10) * amp);
 	out = MidEQ.ar(in, 50, 1.0, 12) * amp;
