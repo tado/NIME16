@@ -1,8 +1,0 @@
-ofxCv
-ofxFft
-ofxGLSLSimplexNoise
-ofxGui
-ofxOpenCv
-ofxOsc
-ofxSuperCollider
-ofxXmlSettings
