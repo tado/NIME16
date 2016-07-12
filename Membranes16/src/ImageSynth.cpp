@@ -27,7 +27,8 @@ ImageSynth::ImageSynth(ofImage image, ofVec3f _pos, float _freqRatio){
     cv::Mat src_mat, dst_mat;
     src_mat = ofxCv::toCv(tmpImage);
     //cv::medianBlur(src_mat, dst_mat, 101);
-    cv::GaussianBlur(src_mat, dst_mat, cv::Size(121,121), 120, 120);
+    //cv::GaussianBlur(src_mat, dst_mat, cv::Size(121,121), 120, 120);
+    cv::GaussianBlur(src_mat, dst_mat, cv::Size(31,31), 8, 6);
     ofxCv::toOf(dst_mat, depthImage);
     depthImage.update();
     depthImage.resize(1920, 1080);
